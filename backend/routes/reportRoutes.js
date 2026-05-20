@@ -1,18 +1,23 @@
+
 const express = require("express");
 const router = express.Router();
 const {
   getMostBorrowedBooks,
   getTopBorrowers,
-  getOverdueTransactions
+  getOverdueTransactions,
+  getIssuedBooks,
+  getReturnedBooks,
+  getTotalFineCollected
 } = require("../controllers/reportController");
 
-// GET /api/reports/most-borrowed
+// Existing Reports
 router.get("/most-borrowed", getMostBorrowedBooks);
-
-// GET /api/reports/top-borrowers
 router.get("/top-borrowers", getTopBorrowers);
-
-// GET /api/reports/overdue
 router.get("/overdue", getOverdueTransactions);
+
+// New Reports
+router.get("/issued", getIssuedBooks);               // All borrowed
+router.get("/returned", getReturnedBooks);           // All returned
+router.get("/total-fine", getTotalFineCollected);    // Total fine
 
 module.exports = router;

@@ -1,5 +1,4 @@
 const Setting = require("../models/Setting");
-
 // Get current settings
 exports.getSettings = async (req, res) => {
   try {
